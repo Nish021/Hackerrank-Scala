@@ -1,35 +1,23 @@
 object Solution {
 
+   def gcd(a:Long, b:Long) : Long= {
+        
+            if ( b == 0 ) return a 
+            else  return gcd(b, a%b)
+    }
+    
+    def lcm(a : Array[Int], i : Int) : Long  = {
+        
+        if(i == a.size - 1 ) return a(i)
+        
+        return (a(i) * lcm(a, i+1)) / gcd(a(i), lcm(a, i+1))
+    }
     def main(args: Array[String]) {
      
-         var n=scala.io.StdIn.readInt()
-        var l=scala.io.StdIn.readLine().split(" ").map(_.toLong)
-        
-        def lcm(a:Long,b:Long):Long={
-            def gcd(c:Long,d:Long):Long={
-                if(d==0) c
-                else gcd(d,(c%d))
-            }
-            var lc=((a*b)/gcd(a,b)).toLong
-            lc
-        }
-        
-        var out=lcm(l(0),l(1))
-        //println(out)
-        if(n==2){
-          //  print(out)
-            System.exit(0)
-        }
-        else{
-            for(i<- 2 to l.length-1){
-                println(out, l(i))
-                if(i == l.length-1 )
-                out = out
-                else
-                out=lcm(out,l(i))
-            }
-        }
-        print(out)
+        var n = scala.io.StdIn.readInt;
+        var a = scala.io.StdIn.readLine().split(" ").map(x => x.toInt)
+        var b = 0
+        println(lcm(a,b))
         
     }
 }
