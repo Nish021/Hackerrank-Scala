@@ -1,3 +1,5 @@
+//https://www.hackerrank.com/challenges/string-o-permute/problem
+
 object Solution {
 
     def swap(str: String): String = {
